@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+ </head>   
+
+ <body>
+<script>
+function generateButtons(num) {
+    for (let i = 65; i <= (num + 64); i++) {
+        let btn = document.createElement('BUTTON')
+        document.body.appendChild(btn)
+        let btnName =String.fromCharCode(i);
+        btn.innerHTML=btnName
+        btn.style.width="40px"
+        btn.style.margin="5px"
+        btn.onclick = function() {console.log('Button '+ btnName + ' was clicked.')}
+    }
+}
+
+function recipeInfo (recipeTitle, serving, ingredients){
+    this.recipeTitle = recipeTitle;
+    this.serving = serving;
+    this.ingredients = ingredients;
+    this.print = function(){
+        document.write("Title: " + this.recipeTitle + "<br\>");
+        document.write("Serves: " + this.serving + "<br\>");
+        document.write("Ingrediens: " + "<br\>")
+        for (let i = 0; i < this.ingredients.length; i++) {
+            document.write(this.ingredients[i] + "<br\>")
+        }
+    }
+}
+let myRecipe = new recipeInfo("Apple Pie", 2, ["apple", "butter", "sugar", "flour"])
+
+myRecipe.print()
+
+generateButtons(10)
+
+
+</script>
+ </body>
+</html>
